@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Movie recommendation system</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="right hide-on-med-and-down">
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Movie Recommendation System</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Recommends Similar Movies Based On The Given Input
+        <br>
+        </h5>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="POST" class="col s12">
+        
+      <div class="row center">
+        <div class="input-field col s3">
+            <label><b>Movie Name</b></label>
+            <br>
+          <input type="text" name ='movie_name'/>
+        </div>
+        
+      </div>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Recommend</button>
+      </div>
+    </form>
+  </div>
+
+  <div class='textbox'>
+    {% for i in pred %}
+            <div class = "text"> {{i}} </div>
+      {% endfor %}
+  </div>
+
+
+  </body>
+</html>
